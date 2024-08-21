@@ -1,0 +1,1875 @@
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('fonts/SFProDisplay-Regular.woff2') format('woff2'),
+        url('fonts/SFProDisplay-Regular.woff') format('woff'),
+        url('fonts/SFProDisplay-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: all .3s linear;
+}
+
+html::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: rgb(216, 216, 216);
+}
+
+html::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 1rem;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.top-header {
+    height: 65px;
+    padding: 10px 160px 10px 160px;
+    gap: 0px;
+    justify-content: space-between;
+    display: flex;
+    background: #FFFFFF;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    z-index: 1000;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+}
+
+.search-box {
+    position: relative;
+    min-width: 300px;
+    min-height: 56px;
+    gap: 12px;
+    opacity: 0px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 17%;
+}
+
+.search-icon img {
+    width: 30px;
+    height: 30px;
+}
+
+input[type="text"] {
+    width: 372px;
+    height: 50px;
+    padding: 10px 10px 10px 50px;
+    box-sizing: border-box;
+    border-radius: 9px;
+    outline: none;
+    background: #F5F5F5;
+}
+
+.top-header .nav {
+    display: flex;
+    gap: 45px;
+}
+
+.top-header .nav a {
+    font-family: 'SF Pro Display';
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 19.09px;
+    color: #000000;
+}
+
+.top-header .icons button {
+    background-color: transparent;
+}
+
+.top-header .icons i {
+    padding: 0px 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.top-header .icons .temp1,
+.top-header .icons .temp2 {
+    display: none;
+}
+
+header .search-form {
+    position: absolute;
+    background: #fff;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    top: 120%;
+    right: 10%;
+    height: 2.4rem;
+    width: 30rem;
+    padding: 0.3rem;
+    display: none;
+}
+
+header .search-form.active {
+    display: flex;
+}
+
+header .search-form #search-box {
+    width: 100%;
+    border-radius: .5rem;
+    padding: 0.5rem 0.5rem;
+    font-size: 1rem;
+    color: black;
+    height: 100%;
+    border: none;
+    outline: none;
+}
+
+header .search-form label {
+    font-size: 1rem;
+    padding-left: 1rem;
+    padding-right: .5rem;
+    cursor: pointer;
+    color: black;
+}
+
+header .search-form label:hover {
+    color: #e67e22;
+}
+
+.side-bar {
+    background: linear-gradient(90.7deg, #211C24 0.64%, #211C24 101%);
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    overflow-y: auto;
+    transition: 0.4s;
+    transition-property: left;
+    z-index: 1000;
+    transition: 0.5s ease;
+}
+
+.side-bar.active {
+    right: 0px;
+}
+
+.side-bar .menu {
+    width: 100%;
+    margin-top: 50px;
+}
+
+.side-bar .menu .item {
+    position: relative;
+    cursor: pointer;
+}
+
+.side-bar .menu .item a {
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    display: block;
+    padding: 5px 20px;
+    line-height: 60px;
+    margin-top: -5px;
+}
+
+.side-bar .menu .item a:hover {
+    background: rgb(110, 109, 109);
+    color: white;
+    transition: 0.3s ease;
+}
+
+.side-bar .menu .item i {
+    margin-right: 15px;
+}
+
+.side-bar .menu .item a .dropdown {
+    position: absolute;
+    right: 0;
+    margin: 20px;
+    transition: 0.3s ease;
+}
+
+.side-bar .menu .item .sub-menu {
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 1;
+    display: none;
+}
+
+.side-bar .menu .item .sub-menu a {
+    padding-left: 80px;
+}
+
+.rotate {
+    transform: rotate(90deg);
+}
+
+.close-btn {
+    position: absolute;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    left: 0;
+    margin: 17px;
+}
+
+.menu-btn {
+    position: absolute;
+    color: white;
+    font-size: 20px;
+    margin: 17px;
+    cursor: pointer;
+}
+
+.banner {
+    display: flex;
+    height: 632px;
+    padding: 0px 160px 0px 160px;
+    gap: 0px;
+    justify-content: space-between;
+    opacity: 0px;
+    background: linear-gradient(90.7deg, #211C24 0.64%, #211C24 101%);
+    align-items: center;
+}
+
+.banner .text {
+    width: 714px;
+    height: 256px;
+    gap: 24px;
+    opacity: 0px;
+
+}
+
+.banner .text h5 {
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 32px;
+    text-align: left;
+    width: 714px;
+    height: 32px;
+    gap: 0px;
+    opacity: 40%;
+    color: #FFFFFF;
+}
+
+.banner .text h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 714px;
+    height: 72px;
+    gap: 0px;
+    opacity: 0px;
+    font-size: 96px;
+    font-weight: 100;
+    line-height: 72px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: #FFFFFF;
+    margin: 25px 0px;
+}
+
+.banner .text h1 span {
+    font-size: 96px;
+    font-weight: 600;
+    line-height: 72px;
+    letter-spacing: -0.01em;
+    text-align: left;
+}
+
+.banner .text h3 {
+    width: 714px;
+    height: 24px;
+    gap: 0px;
+    opacity: 0px;
+    font-family: 'SF Pro Display';
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+    color: #909090;
+    margin: 25px 0px;
+}
+
+.banner .text .btn {
+    width: 184px;
+    height: 56px;
+    padding: 16px 56px 16px 56px;
+    gap: 8px;
+    border-radius: 6px;
+    opacity: 0px;
+    background-color: transparent;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: 0.5s ease;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+}
+
+.banner .text .btn:hover {
+    background-color: #FFFFFF;
+    color: black;
+}
+
+
+.productbanner {
+    display: flex;
+    text-align: center;
+    height: 600px;
+}
+
+.productbanner .left {
+    align-items: center;
+    width: 50%;
+    height: 600px;
+}
+
+.productbanner .left .upper {
+    display: flex;
+    height: 300px;
+    align-items: center;
+    padding: 0px 40px 0px 0px;
+    background-color: white;
+}
+
+.productbanner .left .upper .img {
+    width: 40%;
+    height: 100%;
+}
+
+.productbanner .left .upper .img img {
+    height: 100%;
+    position: relative;
+    left: -80px;
+}
+
+.productbanner .left .upper .text {
+    text-align: left;
+    width: 70%;
+}
+
+.productbanner .left .upper .text h3 {
+
+    font-size: 35px;
+    font-weight: 500;
+    line-height: 40px;
+    text-align: left;
+}
+
+.productbanner .left .upper .text h4 {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+}
+
+.productbanner .left .lower {
+    display: flex;
+    align-items: center;
+    height: 300px;
+}
+
+.productbanner .left .lower .first,
+.productbanner .left .lower .second {
+
+    width: 50%;
+    display: flex;
+    height: 300px;
+    align-items: center;
+    padding: 0px 40px 0px 0px;
+}
+
+.productbanner .left .lower .first {
+    align-items: center;
+    margin: 0% auto;
+    background-color: #EDEDED;
+}
+
+.productbanner .left .lower .first .img {
+    height: 100%;
+    width: 40%;
+}
+
+.productbanner .left .lower .first .img img {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    left: -50%;
+}
+
+.productbanner .left .lower .first .text {
+    text-align: left;
+    width: 60%;
+}
+
+.productbanner .left .lower .first .text h3,
+.productbanner .left .lower .second .text h3,
+.productbanner .left .lower .first .text h4,
+.productbanner .left .lower .second .text h4 {
+    font-size: 29px;
+    font-weight: 300;
+    line-height: 40px;
+    text-align: left;
+}
+
+.productbanner .left .lower .first .text h4 span,
+.productbanner .left .lower .second .text h4 span {
+    font-weight: 600;
+}
+
+.productbanner .left .lower .first .text h5,
+.productbanner .left .lower .second .text h5 {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+    padding: 0px 10px 0px 0px;
+}
+
+
+.productbanner .left .lower .second {
+    align-items: center;
+    margin: 0% auto;
+    display: flex;
+    justify-content: center;
+    background-color: #353535;
+}
+
+.productbanner .left .lower .second .img {
+    height: 100%;
+    width: 50%;
+    overflow: hidden;
+}
+
+.productbanner .left .lower .second .img img {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    left: -30%;
+}
+
+.productbanner .left .lower .second .text {
+    text-align: left;
+    width: 60%;
+    color: white;
+}
+
+.productbanner .right {
+    align-items: center;
+    width: 50%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    background-color: #EDEDED;
+}
+
+.productbanner .right .text {
+    width: 50%;
+    text-align: left;
+}
+
+.productbanner .right .text h3 {
+    font-size: 54px;
+    font-weight: 100;
+    line-height: 30px;
+    text-align: left;
+    height: auto;
+    padding: 10px 0px;
+}
+
+.productbanner .right .text h3 span {
+    font-weight: 550;
+    height: 100%;
+}
+
+.productbanner .right .text h4 {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+    color: #909090;
+}
+
+.productbanner .right .text .btn {
+    margin-top: 10px;
+    padding: 16px 56px 16px 56px;
+    gap: 8px;
+    border-radius: 6px;
+    opacity: 0px;
+    background-color: transparent;
+    border: 1px solid black;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.productbanner .right .text .btn:hover {
+    background-color: #000000;
+    color: white;
+}
+
+
+.productbanner .right .img {
+    width: 37%;
+    height: 100%;
+    position: relative;
+    left: 50px;
+    right: -10px;
+    overflow: hidden;
+    justify-content: flex-start;
+}
+
+.productbanner .right .img img {
+    width: 628px;
+    height: 100%;
+}
+
+#features {
+    padding: 50px 160px;
+    z-index: 0;
+    background-color: #FAFAFA;
+}
+
+#features .text {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0px;
+}
+
+#features .text .info {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    letter-spacing: 0.01em;
+    text-align: left;
+}
+
+#features .text .icon {
+    width: 80px;
+    height: 32px;
+    gap: 16px;
+    opacity: 0px;
+}
+
+#features .text .icon i {
+    padding: 0px 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+#feature {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#feature .featurebox {
+    width: 160px;
+    height: 128px;
+    padding: 24px 0px;
+    gap: 8px;
+    text-align: center;
+    border-radius: 15px;
+    background: #EDEDED;
+}
+
+#feature .featurebox img {
+    margin-bottom: 10px;
+    height: 48px;
+    width: 48px;
+}
+
+#feature .featurebox h5 {
+    font-family: 'SF Pro Display';
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+    width: 100%;
+}
+
+#feabox {
+    text-align: center;
+    padding: 50px 160px;
+    z-index: 0;
+}
+
+#feabox .text {
+    display: flex;
+}
+
+#feabox .text a {
+    color: #8B8B8B;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#feabox .text a:nth-child(1) {
+    padding-left: 0px;
+    border-bottom: 2px solid black;
+    color: black;
+}
+
+#feabox .procon {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    flex-wrap: wrap;
+}
+
+#feabox .pro {
+    position: relative;
+    width: 21%;
+    min-width: 220px;
+    padding: 24px 15px 10px 15px;
+    margin: 15px 0px;
+    border-radius: 10px;
+    transition: 0.3s ease;
+    background-color: #F6F6F6;
+}
+
+#feabox .pro .hearticon {
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+#feabox .pro .hearticon i {
+    color: black;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#feabox .pro .hearticon i.active {
+    color: red;
+}
+
+#feabox .pro img {
+    height: 160px;
+    width: 160px;
+}
+
+#feabox .pro .des {
+    text-align: center;
+    margin: 10px 0px;
+    padding: 10px 0px;
+}
+
+#feabox .pro .des span {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    color: black;
+    font-size: 14px;
+}
+
+#feabox .pro .des h4 {
+    margin: 15px 0px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+#feabox .pro .des .btn {
+    padding: 7px 50px;
+    gap: 8px;
+    border-radius: 6px;
+    opacity: 0px;
+    background-color: black;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: 0.5s ease;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+}
+
+.productbanner2 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.productbanner2 .boxes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.productbanner2 .box {
+    width: 25%;
+    padding: 20px 0px;
+}
+
+.productbanner2 .box .img {
+    height: 366px;
+}
+
+.productbanner2 .box .img img {
+    height: 100%;
+    width: 100%;
+}
+
+.productbanner2 .box .text {
+    margin: 15px 20px;
+}
+
+.productbanner2 .box .text h2 {
+    font-family: 'SF Pro Display';
+    font-size: 33px;
+    font-weight: 300;
+    line-height: 48px;
+    text-align: left;
+}
+
+.productbanner2 .box .text p {
+    font-family: 'SF Pro Display';
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #909090;
+    text-align: left;
+}
+
+.productbanner2 .box .text .btn {
+    padding: 16px 56px 16px 56px;
+    border-radius: 6px;
+    border: 2px solid black;
+    background-color: transparent;
+    margin-top: 20px;
+}
+
+.productbanner2 .box .text .btn:hover {
+    background-color: black;
+    color: white;
+    border: 2px solid transparent;
+}
+
+.productbanner2 .box:nth-child(2) {
+    background-color: #F9F9F9;
+}
+
+.productbanner2 .box:nth-child(3) {
+    background-color: #EAEAEA;
+}
+
+.productbanner2 .box:nth-child(4) {
+    background-color: #2C2C2C;
+}
+
+.productbanner2 .box .temp h2 {
+    color: white;
+}
+
+.productbanner2 .box .temp .btn {
+    border: 2px solid white;
+    color: white;
+}
+
+
+.lastbanner {
+    position: relative;
+    width: 100%;
+    height: 448px;
+    background-color: #222;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.lastbanner img {
+    position: absolute;
+    max-width: auto;
+}
+
+.lastbanner img:nth-child(1) {
+    top: 1px;
+    left: 130px;
+    transform: rotate(-5deg);
+    z-index: 10;
+}
+
+.lastbanner img:nth-child(2) {
+    bottom: 10px;
+    left: 0px;
+    transform: rotate(-2deg);
+}
+
+.lastbanner img:nth-child(3) {
+    top: 10px;
+    right: 0px;
+    transform: rotate(0deg);
+    z-index: 1;
+}
+
+.lastbanner img:nth-child(4) {
+    bottom: 0px;
+    right: 20px;
+    transform: rotate(-1deg);
+}
+
+.lastbanner img:nth-child(5) {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 20%;
+    transform: translate(0px, 0%);
+    min-width: 300px;
+}
+
+.lastbanner .content {
+    text-align: center;
+    z-index: 100;
+}
+
+.lastbanner .content h4 {
+    font-size: 48px;
+    margin: 0;
+    font-weight: 100;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.lastbanner .content h4 span {
+    font-weight: 600;
+}
+
+.lastbanner .content p {
+    margin: 10px 0px 30px 0px;
+    color: lightgray;
+}
+
+.lastbanner .content a {
+    display: inline-block;
+    padding: 13px 40px;
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid white;
+    transition: 0.3s ease;
+}
+
+.lastbanner .content a:hover {
+    background-color: white;
+    color: black;
+}
+
+.footer {
+    background-color: black;
+    padding: 104px 160px;
+}
+
+.footer .box-container {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1.5fr;
+    gap: 4rem;
+}
+
+.footer .box-container .box h3 {
+    color: white;
+    font-size: 16px;
+    padding-bottom: 3rem;
+}
+
+.footer .box-container .box span {
+    color: white;
+    font-size: 14px;
+}
+
+.footer .box-container .box a {
+    color: rgb(202, 202, 202);
+    font-size: 14px;
+    padding-bottom: 1.7rem;
+    display: block;
+}
+
+.footer .icons {
+    display: flex;
+}
+
+.footer .icons img {
+    padding: 0px 15px;
+}
+
+
+/* Login Page */
+
+
+.login {
+    height: 100vh;
+    background-color: #ECECEC;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 2rem;
+}
+
+.login .img {
+    height: 592px;
+}
+
+.login .img img {
+    height: 100%;
+    width: 100%;
+}
+
+.login .loginbox {
+    padding: 4rem 3rem;
+    width: 520px;
+    /* height: 550px; */
+    height: auto;
+    border-radius: .5rem;
+    border-radius: 15px;
+    background-color: white;
+    text-align: left;
+    align-items: center;
+    display: block;
+    position: relative;
+}
+
+.login .loginbox h2 {
+    font-size: 35px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 10px;
+}
+
+.login .loginbox p {
+    font-size: 13px;
+    font-weight: 500;
+    color: #b4b4b4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 1px;
+}
+
+.login .loginbox .loginsection form {
+    display: flex;
+    flex-direction: column;
+    margin: 25px 0px;
+}
+
+.login .loginbox .loginsection label {
+    font-size: 16px;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    margin: 7px 0px;
+}
+
+.login .loginbox .loginsection input {
+    border: 1px solid rgb(207, 207, 207);
+    padding: 10px 10px;
+    border-radius: 15px;
+    height: 41px;
+    min-width: 100%;
+}
+
+.login .loginbox .loginsection .password {
+    position: relative;
+}
+
+.login .loginbox .loginsection p {
+    color: red;
+}
+
+.name-error,
+.email-error,
+.password-error,
+.confirm-error {
+    opacity: 0;
+}
+
+.name-error.active {
+    opacity: 1;
+}
+
+.email-error.active {
+    opacity: 1;
+}
+
+.password-error.active {
+    opacity: 1;
+}
+
+.confirm-error.active {
+    opacity: 1;
+}
+
+.login .loginbox .loginsection #b1 {
+    position: absolute;
+    top: 14px;
+    right: 30px;
+    align-items: center;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.login .loginbox .forget input {
+    margin-top: 5px;
+}
+
+.login .loginbox .forget .password label {
+    padding-top: 50px;
+    line-height: 2.5;
+}
+
+.login .loginbox .forget {
+    position: relative;
+}
+
+.login .loginbox .forget #f1,
+.login .loginbox .forget #f2 {
+    position: absolute;
+    top: 57px;
+    right: 30px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+
+.login .loginbox .loginsection a {
+    padding: 25px 0px 10px 5px;
+    color: #6236F5;
+    font-size: 13px;
+    font-weight: 600;
+    max-width: 120px;
+}
+
+.login .loginbox button {
+    background-color: #6236F5;
+    color: white;
+    text-align: center;
+    height: 48px;
+    cursor: pointer;
+    margin: 20px 0px;
+    border-radius: 15px;
+    font-size: 18px;
+}
+
+.login .forget button {
+    margin-top: 40px;
+}
+
+.login .loginbox button i {
+    line-height: 2;
+}
+
+.login .loginbox button:hover {
+    padding-left: 10px;
+}
+
+.login .loginbox .create {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.login .loginbox .create h3 {
+    text-align: left;
+    font-size: 13px;
+    color: rgb(200, 200, 200);
+}
+
+.login .loginbox .create a {
+    position: absolute;
+    top: -10px;
+    right: 0px;
+    background-color: #efefef;
+    padding: 10px 30px;
+    border-radius: 5px;
+    color: black;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* Admin Dasboard */
+
+.adminheader {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 100px;
+    background-color: black;
+}
+
+.adminheader h2 {
+    font-size: 25px;
+    color: white;
+}
+
+.adminheader button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.header .userbox {
+    position: absolute;
+    top: 80px;
+    right: 2rem;
+    background-color: black;
+    border-radius: .5rem;
+    padding: 2rem;
+    text-align: left;
+    width: 30rem;
+    display: none;
+    animation: fadeIn .2s linear;
+}
+
+.userbox.active {
+    display: inline-block;
+}
+
+.header .userbox p {
+    font-size: 1.6rem;
+    color: white;
+    margin-bottom: 2rem;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.header .userbox p span {
+    color: white;
+    text-transform: none;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.header .userbox p:nth-child(3) {
+    margin-bottom: 3rem;
+}
+
+.header .userbox a {
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 9px 25px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 17px;
+    color: White;
+    margin: 200px 0px;
+}
+
+.header .userbox a:hover {
+    background-color: white;
+    color: black;
+}
+
+
+
+
+
+@media (max-width: 1300px) {
+
+    .top-header {
+        padding: 10px 30px 10px 30px;
+    }
+
+    input[type="text"] {
+        width: 300px;
+    }
+
+    .top-header .nav {
+        gap: 35px;
+    }
+
+    .banner {
+        padding: 0px 40px 0px 40px;
+    }
+
+    .banner .text {
+        width: 400px;
+    }
+
+    .banner .text h5 {
+        font-size: 22px;
+        width: 600px;
+    }
+
+    .banner .text h1 {
+        width: 600px;
+        font-size: 60px;
+        margin: 15px 0px;
+    }
+
+    .banner .text h3 {
+        width: 600px;
+        font-size: 15px;
+        margin: 15px 0px;
+    }
+
+    .banner .text .btn {
+        width: 154px;
+        height: 46px;
+        padding: 20px;
+        line-height: 2px;
+    }
+
+    #features {
+        padding: 50px 40px;
+    }
+
+    #feature .featurebox {
+        margin: 10px 0px;
+    }
+
+    #feabox {
+        padding: 50px 40px;
+    }
+
+    .productbanner .right {
+        flex-direction: column;
+    }
+
+    .productbanner .right .img {
+        width: 100%;
+        left: 0px;
+        right: 0px;
+        height: auto;
+        order: 1;
+    }
+
+    .productbanner .right .img img {
+        height: 400px;
+        width: 500px;
+    }
+
+    .productbanner .right .text {
+        top: 0px;
+        width: 80%;
+        text-align: center;
+        padding: 5px 0px 10px 0px;
+        order: 2;
+    }
+
+    .productbanner .right .text h3 {
+        font-size: 40px;
+        height: auto;
+        text-align: center;
+    }
+
+    .productbanner .right .text h4 {
+        margin: 5px 0px 5px 0px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 1100px) {
+    .productbanner .left .upper {
+        padding: 0px 10px 0px 0px;
+        justify-content: space-between;
+    }
+
+    .productbanner .left .upper .text {
+        text-align: left;
+        width: 60%;
+    }
+
+    .productbanner .left .upper .text h3 {
+        font-size: 25px;
+    }
+
+    .productbanner .left .upper .text h4 {
+        margin-top: 1px;
+        font-size: 12px;
+    }
+
+    .productbanner .left .lower .first,
+    .productbanner .left .lower .second {
+
+        padding: 0px 10px 0px 0px;
+    }
+
+
+    .productbanner .left .lower .first .text h3,
+    .productbanner .left .lower .second .text h3,
+    .productbanner .left .lower .first .text h4,
+    .productbanner .left .lower .second .text h4 {
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    .productbanner .left .lower .first .text h5,
+    .productbanner .left .lower .second .text h5 {
+        font-size: 12px;
+        line-height: 17px;
+    }
+}
+
+
+@media (max-width: 1000px) {
+
+    .top-header .icons .temp1 {
+        display: block;
+    }
+
+    .search-box {
+        display: none;
+    }
+
+    .top-header .icons {
+        display: flex;
+    }
+
+    .footer {
+        padding: 104px 30px;
+    }
+
+    .lastbanner img:nth-child(1) {
+        top: 1px;
+        left: 30px;
+    }
+
+    .lastbanner .content h4 {
+        font-size: 28px;
+    }
+
+
+    .lastbanner .content p {
+        margin: 5px 0px 20px 0px;
+    }
+
+    .lastbanner .content a {
+
+        padding: 10px 30px;
+
+    }
+}
+
+@media (max-width: 950px) {
+
+    .productbanner {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .productbanner .left {
+        align-items: center;
+        width: 100%;
+        height: auto;
+    }
+
+    .productbanner .left .upper {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+        padding: 20px 0px;
+    }
+
+    .productbanner .left .upper .img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .productbanner .left .upper .img img {
+        height: 300px;
+        width: 300px;
+        position: relative;
+        left: 0px;
+        right: 0px;
+    }
+
+    .productbanner .left .upper .text {
+        text-align: center;
+        width: 60%;
+        margin-top: 10px;
+    }
+
+
+    .productbanner .left .upper .text h3 {
+
+        text-align: center;
+    }
+
+    .productbanner .left .upper .text h4 {
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .productbanner .left .lower {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+        padding: 0px;
+    }
+
+    .productbanner .left .lower .first,
+    .productbanner .left .lower .second {
+
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        padding: 50px 0px;
+    }
+
+
+    .productbanner .left .lower .first .img,
+    .productbanner .left .lower .second .img {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 20px;
+        padding: 20px 0px;
+    }
+
+    .productbanner .left .lower .first .img img,
+    .productbanner .left .lower .second .img img {
+        height: 100%;
+        width: 300px;
+        position: relative;
+        left: 0px;
+        right: 0px;
+    }
+
+    .productbanner .left .lower .first .text {
+        text-align: left;
+        width: 60%;
+    }
+
+    .productbanner .left .lower .first .text h3,
+    .productbanner .left .lower .second .text h3,
+    .productbanner .left .lower .first .text h4,
+    .productbanner .left .lower .second .text h4 {
+        font-size: 29px;
+        font-weight: 300;
+        line-height: 40px;
+        text-align: center;
+    }
+
+    .productbanner .left .lower .first .text h4 span,
+    .productbanner .left .lower .second .text h4 span {
+        font-weight: 600;
+    }
+
+
+    .productbanner .left .lower .first .text h5,
+    .productbanner .left .lower .second .text h5 {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .productbanner .right {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .productbanner .right .img {
+        width: 100%;
+    }
+
+    .productbanner .right .text {
+        width: 60%;
+    }
+
+    .productbanner .right .text h3 {
+        text-align: center;
+    }
+
+    .productbanner .right .text h4 {
+        text-align: center;
+    }
+
+    .productbanner .right .text .btn {
+        width: 80%;
+    }
+}
+
+
+@media (max-width: 850px) {
+
+    .banner {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        padding: 0px;
+    }
+
+    .banner .text {
+        margin: 70px 0px 20px 0px;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        padding: 20px 0px;
+    }
+
+    .banner .text h5 {
+        font-size: 25px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .banner .text h1 {
+
+        width: 100%;
+        height: 100%;
+        font-size: 60px;
+        text-align: center;
+    }
+
+
+    .banner .text h3 {
+        width: 100%;
+        height: 100%;
+        font-size: 18px;
+        text-align: center;
+        margin: 25px 0;
+    }
+
+    .banner .text .btn {
+        width: 184px;
+        height: 100%;
+        padding: 16px;
+        font-size: 14px;
+        line-height: 24px;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    #feabox .text a {
+        padding: 0px 10px;
+        font-size: 13px;
+    }
+
+    .lastbanner img {
+        max-width: 200px;
+    }
+
+    .adminheader {
+        padding: 20px 30px;
+    }
+
+
+}
+
+@media (max-width: 768px) {
+    .productbanner2 .box {
+        width: 50%;
+    }
+
+    .footer {
+        padding: 50px 20px;
+    }
+
+    .footer .box-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer .box-container .box {
+        text-align: center;
+        margin: 10px 0px;
+    }
+
+    .footer .icons {
+        justify-content: center;
+        margin: 20px 0px 30px 0px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .banner .text h5 {
+        font-size: 20px;
+    }
+
+    .banner .text h1 {
+
+        font-size: 40px;
+    }
+
+    .banner .text h3 {
+        font-size: 15px;
+
+    }
+
+    .banner .text .btn {
+        width: 154px;
+        padding: 12px;
+        font-size: 12px;
+    }
+
+    .banner .img {
+        width: 343px;
+        height: 289px;
+    }
+
+    .banner .img img {
+        width: 321px;
+        height: 289px;
+        left: 11px;
+    }
+
+    .top-header .icons .temp,
+    .top-header .icons .temp1 {
+        display: none;
+    }
+
+    .top-header .nav {
+        display: none;
+    }
+
+    .top-header .icons .temp2 {
+        display: block;
+    }
+
+    #features {
+        padding: 50px 20px;
+    }
+
+    #features .text .info {
+        font-size: 15px;
+    }
+
+    #features .text .icon i {
+        font-size: 15px;
+    }
+
+    .login .img {
+        display: none;
+    }
+
+}
+
+@media (max-width: 500px) {
+    #feabox .procon {
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    #feabox .text {
+        justify-content: center;
+    }
+
+    #feabox {
+        text-align: center;
+        padding: 20px 0px;
+    }
+
+    #feabox .pro {
+        position: relative;
+        width: 30%;
+        min-width: 200px;
+        padding: 24px 12px 10px 12px;
+        margin: 15px 0px;
+        border-radius: 10px;
+        transition: 0.3s ease;
+        background-color: #F6F6F6;
+    }
+
+    .productbanner2 .box {
+        width: 100%;
+        display: none;
+    }
+
+    .productbanner2 .box.active {
+        display: block;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .dots {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 5px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .dot.active {
+        background-color: #717171;
+    }
+
+    .productbanner .right .text {
+        width: 90%;
+    }
+
+    .productbanner .left .lower .first .text {
+        width: 90%;
+    }
+
+    .productbanner .left .lower .second .text {
+        width: 90%;
+    }
+
+    .productbanner .left .upper .text {
+        width: 90%;
+    }
+
+    .productbanner .right {
+        height: auto;
+        padding: 20px 0px;
+    }
+
+    .productbanner .right .img {
+        width: 100%;
+        height: auto;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .productbanner .right .img img {
+        height: 220px;
+        width: 330px;
+    }
+
+    .lastbanner img {
+        max-width: 150px;
+    }
+
+    .lastbanner img:nth-child(1) {
+        top: -20px;
+        left: -100px;
+        transform: rotate(5deg);
+        z-index: 10;
+    }
+
+    .lastbanner img:nth-child(2) {
+        bottom: -40px;
+        left: -50px;
+        transform: rotate(10deg);
+    }
+
+    .lastbanner img:nth-child(3) {
+        top: -60px;
+        right: -15px;
+        transform: rotate(-20deg);
+        z-index: 1;
+    }
+
+    .lastbanner img:nth-child(4) {
+        bottom: -10px;
+        right: -40px;
+        transform: rotate(-1deg);
+    }
+
+    .lastbanner img:nth-child(5) {
+        display: block;
+    }
+
+    .login .loginbox {
+        padding: 4rem 2rem;
+    }
+
+    .login {
+        padding: auto 3rem;
+    }
+
+}
+
+@media (max-width: 450px) {
+    .lastbanner img:nth-child(5) {
+        left: 0%;
+    }
+
+    #feature {
+        justify-content: space-evenly;
+    }
+
+    #feature .featurebox {
+        width: 130px;
+        height: auto;
+        padding: 20px 0px;
+
+    }
+
+    #feature .featurebox img {
+        height: 35px;
+        width: 35px;
+    }
+
+    #feature .featurebox h5 {
+        font-size: 13px;
+    }
+
+    .login .loginbox h2 {
+        font-size: 25px;
+    }
+
+    .login .loginbox p {
+        font-size: 11px;
+    }
+
+    .login .loginbox {
+        padding: auto 1rem;
+    }
+
+    .login .loginbox .loginsection label {
+        font-size: 14px;
+    }
+
+    .login .loginbox a {
+        padding: 25px 0px 10px 5px;
+        font-size: 11px;
+    }
+
+
+    .login .loginbox .create h3 {
+        font-size: 10px;
+    }
+
+    .login .loginbox .create a {
+        top: -10px;
+        right: 0px;
+        padding: 10px 30px;
+
+    }
+
+    .login .loginbox {
+        height: 510px;
+    }
+
+}
+
+@media (max-width: 350px) {
+    .login .loginbox {
+        width: 400px;
+    }
+}
